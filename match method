@@ -1,0 +1,28 @@
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+direction = input('type encode to  encrypt, type decode to decrypt :')
+
+text = input('enter your message :')
+
+shift = int(input('type the shift number :'))
+cipher_text = ''
+
+match direction:
+    case 'encode':
+        for x in text:
+            #find index of each elemet in alphabet
+            position = alphabet.index(x)
+            #add index in alphabet with shift number
+            new_pssition = position + shift
+            #make a new text with new index
+            cipher_text = cipher_text + alphabet[new_pssition]
+        print(f'here is your encoded {cipher_text}')
+    case 'decode':
+        for x in text:
+            #find index of each elemet in alphabet
+            position = alphabet.index(x)
+            #reduce index in alphabet with shift number
+            new_pssition = position - shift
+            cipher_text = cipher_text + alphabet[new_pssition]
+        print(f'here is your decodeed {cipher_text}')
+
